@@ -1,123 +1,244 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Whitecore Games</title>
-<link rel="icon" href="html.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<style>
-/* ----- Alap stílus ----- */
-* { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
-body { font-family:'Roboto', sans-serif; background:#0d0d0d; color:#fff; display:flex; min-height:100vh; }
-a { text-decoration:none; color:inherit; }
-ul { list-style:none; }
+    <!-- 👑 Fő cím és leírás SEO-hoz -->
+    <title>Whitecoregames</title>
+    <link rel="stylesheet" href="index.css">
+    <meta name="description" content="Whitecoregames egy kreatív indie játékstúdió Indiában. Fedezd fel játékainkat és csatlakozz a közösséghez!">
+    
+    <!-- 🔗 Canonical URL -->
+    <link rel="canonical" href="https://whitecoregames.com/">
 
-/* ----- Oldalsó Menü ----- */
-.sidebar {
-  position: fixed; left:0; top:0; width:220px; height:100%; background:#111; display:flex; flex-direction:column; padding-top:50px; z-index:1000;
-}
-.sidebar h1 { text-align:center; color:#ff1a1a; margin-bottom:30px; font-size:1.8rem; }
-.sidebar ul { display:flex; flex-direction:column; gap:20px; padding-left:20px; }
-.sidebar ul li a { color:#fff; font-weight:700; transition:0.3s; position:relative; }
-.sidebar ul li a::after {
-    content:""; position:absolute; left:0; bottom:-5px; width:0; height:2px; background:#ff1a1a; transition:0.3s;
-}
-.sidebar ul li a:hover::after { width:100%; }
+    <!-- 🌟 Favicon minden méretben -->
+    <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicons/android-chrome-192x192.png">
+    
+    <!-- 🌐 Manifest a PWA-hoz -->
+    <link rel="manifest" href="favicons/site.webmanifest">
+    <meta name="theme-color" content="#ff6600">
 
-/* ----- Tartalom ----- */
-.main-content { margin-left:220px; padding:50px; width:100%; }
-section { padding:100px 0; border-bottom:1px solid #222; opacity:0; transform:translateY(50px); transition:1s; }
-section.visible { opacity:1; transform:translateY(0); }
-section h2 { color:#ff1a1a; font-size:2.5rem; margin-bottom:20px; }
-section p { font-size:1.1rem; line-height:1.8; color:#eee; }
+    <!-- 🤖 Robots és SEO indexelés -->
+    <meta name="robots" content="index, follow">
 
-/* ----- Játék kártyák ----- */
-.games-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; }
-.card { background:#1a1a1a; padding:20px; border:2px solid #ff1a1a; border-radius:10px; transition:0.3s; cursor:pointer;}
-.card:hover { transform:translateY(-10px) scale(1.05); box-shadow:0 0 20px #ff1a1a; }
-.card h3 { margin-bottom:10px; color:#fff; }
-.card p { font-size:0.95rem; color:#ccc; }
+    <!-- 📢 Open Graph / Social sharing -->
+    <meta property="og:title" content="Whitecoregames">
+    <meta property="og:description" content="Indiai indie játékstúdió, amely kreatív és szórakoztató játékokat készít.">
+    <meta property="og:image" content="favicons/og-image.png">
+    <meta property="og:url" content="https://whitecoregames.com">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
 
-/* ----- Kontakt form ----- */
-form { display:flex; flex-direction:column; gap:15px; max-width:500px; margin-top:20px; }
-input, textarea { padding:10px; border-radius:5px; border:none; outline:none; font-size:1rem;}
-input[type="submit"] { background:#ff1a1a; color:#fff; font-weight:700; cursor:pointer; transition:0.3s; }
-input[type="submit"]:hover { background:#fff; color:#ff1a1a; }
-
-/* ----- Footer ----- */
-footer { background:#111; text-align:center; padding:30px 20px; font-size:0.9rem; color:#888; }
-
-/* ----- Mobil ----- */
-@media(max-width:768px){
-  body { flex-direction:column; }
-  .sidebar { position:relative; width:100%; height:auto; flex-direction:row; justify-content:space-around; padding:15px 0; }
-  .sidebar h1 { display:none; }
-  .main-content { margin-left:0; padding:20px; }
-}
-</style>
+    <!-- 📝 Egyéb meta -->
+    <meta name="author" content="Whitecoregames">
 </head>
 <body>
 
-<div class="top-logo" style="text-align:center; margin:20px 0;">
-  <img src="html.png" alt="Whitecore Games Logo" style="height:100px;">
-</div>
 
 
 
-<div class="sidebar">
-  <h1>Whitecore</h1>
-  <ul>
-    <li><a href="#home">Főoldal</a></li>
-    <li><a href="#about">Rólunk</a></li>
-    <li><a href="#games">Játékok</a></li>
-    <li><a href="#contact">Kapcsolat</a></li>
-    <li><a href="launcher.html">Launcher</a></li>
-  </ul>
-</div>
 
-<div class="main-content">
-  <section id="home">
-    <h2>Üdv a Whitecore Games világában!</h2>
-    <p>Fedezd fel játékainkat, csatlakozz a közösségünkhöz, és légy részese a kreatív játékélménynek!</p>
-  </section>
+<header class="felso-menu">
+    <!-- Logo -->
+    <a href="index.html">
+        <img src="favicons/apple-icon-76x76.png" alt="Whitecoregames Logo" width="80">
+    </a>
 
-  <section id="about">
-    <h2>Rólunk</h2>
-    <p>A Whitecore Games egy független stúdió, amely innovatív, izgalmas játékokat készít minden platformra. Szenvedélyünk a kreativitás és a minőség!</p>
-  </section>
+    <!-- Főmenü -->
+    <nav>
+        <ul>
+            <li><a href="#games">Játékok</a></li>
+            <li><a href="#news">Hírek</a></li>
+            <li><a href="#videos">Videók</a></li>
+            <li><a href="#downloads">Letöltések</a></li>
+            <li>
+                <a href="#store">
+                    Bolt
+                    <img src="image/send.png" alt="Bolt ikon" width="15">
+                </a>
+            </li>
+            <li>
+                <a href="#support">
+                    Support
+                    <img src="image/classic.png" alt="Support ikon" width="15">
+                </a>
+            </li>
+            <li>
+                <a href="#launcher">
+                    Launcher
+                    <img src="image/download.png" alt="Launcher ikon" width="15">
+                </a>
+            </li>
+          
+            <li>
+                <a href="#copy">
+                    <img src="image/copy.png" alt="Másolás ikon" width="50">
+                </a>
+            </li>
+        </ul>
+    </nav>
+    
+</header>
 
-  <section id="games">
-    <h2>Játékaink</h2>
-    <div class="games-container">
-      <div class="card"><h3>Projekt Alpha</h3><p>Stratégiai játék, ahol minden döntés számít.</p></div>
-      <div class="card"><h3>Rogue Quest</h3><p>Akció-kaland játék véletlenszerű kihívásokkal.</p></div>
-      <div class="card"><h3>Neon Racer</h3><p>Gyors tempójú neon versenyjáték multiplayer lehetőséggel.</p></div>
+
+
+
+
+<section class="image-slider">
+    <div class="slides">
+        <div class="slide active">
+            <img src="image/jatek/domonok-kozott.png" alt="Domonok kozott">
+            <div class="caption">
+                <h3>Domonok között</h3>
+                <p>Info: 2026.12.24</p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="image/jatek/the-spirit-of-hungary.png" alt="The Spirit of Hungary">
+            <div class="caption">
+                <h3>The Spirit of Hungary</h3>
+                <p>Info: 2027.01.01</p>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <section id="contact">
-    <h2>Kapcsolat</h2>
-    <form>
-      <input type="text" placeholder="Név" required>
-      <input type="email" placeholder="Email" required>
-      <textarea rows="5" placeholder="Üzenet" required></textarea>
-      <input type="submit" value="Küldés">
-    </form>
-  </section>
+    <!-- Vezérlő gombok -->
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+</section>
 
-  <footer>&copy; 2025 Whitecore Games. Minden jog fenntartva.</footer>
+
+
+
+
+<section class="info-scroll">
+    <div class="info-card">
+        <h3>Találd fel magad</h3>
+        <p>Fedezd fel a játék kreatív lehetőségeit, próbálj ki mindent, és alakítsd saját élményeidet.</p>
+    </div>
+    <div class="info-card">
+        <h3>Rólunk</h3>
+        <p>Whitecoregames egy indie stúdió Indiából. Szenvedélyünk a kreatív, szórakoztató játékok készítése minden korosztály számára.</p>
+    </div>
+    <div class="info-card">
+        <h3>Képek / Média</h3>
+        <p>Tekintsd meg a játék screenshotjait, videókat, artwork-öket, és oszd meg a közösséggel.</p>
+    </div>
+    <div class="info-card">
+        <h3>Használat</h3>
+        <p>Útmutató a játék telepítéséhez, indításához és a funkciók helyes használatához.</p>
+    </div>
+    <div class="info-card">
+        <h3>Support</h3>
+        <p>Kapcsolatfelvétel technikai problémák esetén, hibajelentés és segítségnyújtás.</p>
+    </div>
+    <div class="info-card">
+        <h3>Gyakori kérdések</h3>
+        <p>Lehetséges problémák és azok megoldásai, tippek és trükkök a játékhoz.</p>
+    </div>
+</section>
+
+
+
+
+<section class="game-info-section dark-modern">
+    <video autoplay muted loop playsinline class="background-video">
+        <source src="videos/Démonok között (The Conjuring) - Szinkronos előzetes (16).mp4" type="video/mp4">
+        A böngésződ nem támogatja a videót.
+    </video>
+
+    <div class="video-overlay">
+        <h2>Játék infók</h2>
+        <div class="game-cards">
+            <div class="game-card">
+                <div class="game-image">
+                    <img src="image/jatek/domonok-kozott.png" alt="Domonok kozott">
+                    <div class="overlay"><h3>Domonok között</h3><p>2026.12.24</p></div>
+                </div>
+            </div>
+            <div class="game-card">
+                <div class="game-image">
+                    <img src="image/jatek/the-spirit-of-hungary.png" alt="The Spirit of Hungary">
+                    <div class="overlay"><h3>The Spirit of Hungary</h3><p>2027.01.01</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="shop-section">
+    <div class="shop-container">
+        <a href="shop.html" class="shop-button">Bolt</a>
+        <p class="shop-info">Látogasd meg boltunkat, és szerezd be játékainkat, digitális tartalmainkat és extra csomagjainkat!</p>
+    </div>
+</section>
+
+
+
+
+<!-- KERESŐ -->
+
+
+
+<div class="input-resz">
+    <h1>Keresés</h1>
+    <input type="text" id="gameSearch" placeholder="Keresés játékra...">
 </div>
 
-<script>
-// Scroll-triggered animáció
-const sections = document.querySelectorAll('section');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
-}, {threshold:0.2});
-sections.forEach(section => observer.observe(section));
-</script>
+<!-- JÁTÉK INFÓK -->
+<section class="game-info-section">
+    <h2>Játék infók</h2>
 
+    <div class="game-cards">
+
+        <div class="game-card" data-game="domonok között">
+            <img src="image/jatek/domonok-kozott.png" alt="Domonok között">
+            <div class="overlay">
+                <h3>Démonok között</h3>
+                <p>2026.12.24</p>
+            </div>
+        </div>
+
+        <div class="game-card" data-game="the spirit of hungary">
+            <img src="image/jatek/the-spirit-of-hungary.png" alt="The Spirit of Hungary">
+            <div class="overlay">
+                <h3>The Spirit of Hungary</h3>
+                <p>2027.01.01</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+
+<script src="index.js"></script>
 </body>
 </html>
